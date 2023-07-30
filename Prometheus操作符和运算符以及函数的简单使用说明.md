@@ -162,8 +162,9 @@ Prometheus中存在以下二元比较运算符：
 
 一对一找到了操作的每一边的唯一一对条目。在默认情况下，即按照 vector1 <operator> vector2 的格式进行的操作。如果它们具有完全相同的标签集和相应的值，那么两个条目就匹配。**ignoring**关键字允许在匹配时忽略某些标签，而**on**关键字允许将考虑的标签集减少到提供的列表：
 
-> <vector expr> <bin-op> ignoring(<label list>) <vector expr> <vector expr> <bin-op> on(<label list>) <vector expr>
-
+```agsl
+<vector expr> <bin-op> ignoring(<label list>) <vector expr> <vector expr> <bin-op> on(<label list>) <vector expr>
+```
 **示例数据：**
 
 ![11](./images/截屏2023-07-30%2000.11.31.png)
