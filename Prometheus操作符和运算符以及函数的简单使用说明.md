@@ -91,19 +91,19 @@ Prometheus中存在以下二元比较运算符：
 
 **两组示例数据：**
 
-![截屏2023-07-29 22.36.44](/Users/liuyang/Library/Application Support/typora-user-images/截屏2023-07-29 22.36.44.png)
+![截屏2023-07-29 22.36.44](./截屏2023-07-29 22.36.44.png)
 
 和
 
-![截屏2023-07-29 22.37.41](/Users/liuyang/Library/Application Support/typora-user-images/截屏2023-07-29 22.37.41.png)
+![截屏2023-07-29 22.37.41](./截屏2023-07-29 22.37.41.png)
 
 **使用 >= 操作符返回的示例结果（不带bool修饰符）**
 
-![截屏2023-07-29 22.45.45](/Users/liuyang/Library/Application Support/typora-user-images/截屏2023-07-29 22.45.45.png)
+![截屏2023-07-29 22.45.45](./截屏2023-07-29 22.45.45.png)
 
 **使用 >= 返回的示例结果（带bool修饰符）**
 
-![截屏2023-07-29 22.47.42](/Users/liuyang/Library/Application Support/typora-user-images/截屏2023-07-29 22.47.42.png)
+![截屏2023-07-29 22.47.42](./截屏2023-07-29 22.47.42.png)
 
 3. **瞬时向量和瞬时向量**：这些运算符默认作为一个过滤器，应用于匹配的条目。那些表达式不为真的向量元素，或者在表达式的另一侧找不到匹配的向量元素，将会从结果中删除，而其他的将会传播到结果向量中，分组标签变为输出标签集。如果提供了 bool 修饰符，那些原本会被删除的向量元素会被赋值为0，那些保留下来的向量元素会被赋值为1，分组标签再次变为输出标签集。**如果提供了 bool 修饰符，度量名称将会被删除**。
 
@@ -111,11 +111,11 @@ Prometheus中存在以下二元比较运算符：
 
 **使用 < 操作符的结果示例（不带bool修饰符）**
 
-![截屏2023-07-29 22.41.31](/Users/liuyang/Library/Application Support/typora-user-images/截屏2023-07-29 22.41.31.png)
+![截屏2023-07-29 22.41.31](./截屏2023-07-29 22.41.31.png)
 
 **使用 < 操作符的结果示例（带bool修饰符）**
 
-![截屏2023-07-29 22.42.12](/Users/liuyang/Library/Application Support/typora-user-images/截屏2023-07-29 22.42.12.png)
+![截屏2023-07-29 22.42.12](./截屏2023-07-29 22.42.12.png)
 
 ## 逻辑或集合二元操作符（Logical/set binary operators）
 
@@ -131,15 +131,15 @@ Prometheus中存在以下二元比较运算符：
 
 **vector1 and vector2示例：**
 
-![截屏2023-07-29 22.57.58](/Users/liuyang/Library/Application Support/typora-user-images/截屏2023-07-29 22.57.58.png)
+![截屏2023-07-29 22.57.58](./截屏2023-07-29 22.57.58.png)
 
 **`vector1 or vector2` 的结果是一个向量，它包含 vector1 的所有原始元素（标签集 + 值）以及在 vector1 中没有匹配标签集的 vector2 的所有元素。**
 
-![截屏2023-07-29 22.58.58](/Users/liuyang/Library/Application Support/typora-user-images/截屏2023-07-29 22.58.58.png)
+![截屏2023-07-29 22.58.58](./截屏2023-07-29 22.58.58.png)
 
 **`vector1 unless vector2` 的结果是一个由 vector1 的元素组成的向量，这些元素在 vector2 中没有完全匹配的标签集。两个向量中所有匹配的元素都被丢弃。**
 
-![截屏2023-07-29 22.59.36](/Users/liuyang/Library/Application Support/typora-user-images/截屏2023-07-29 22.59.36.png)
+![截屏2023-07-29 22.59.36](./截屏2023-07-29 22.59.36.png)
 
 ## 向量匹配
 
@@ -175,27 +175,27 @@ Prometheus中存在以下二元比较运算符：
 
 **示例数据：**
 
-![截屏2023-07-30 00.11.31](/Users/liuyang/Library/Application Support/typora-user-images/截屏2023-07-30 00.11.31.png)
+![截屏2023-07-30 00.11.31](./截屏2023-07-30 00.11.31.png)
 
 和
 
-![截屏2023-07-30 00.13.34](/Users/liuyang/Library/Application Support/typora-user-images/截屏2023-07-30 00.13.34.png)
+![截屏2023-07-30 00.13.34](./截屏2023-07-30 00.13.34.png)
 
 **在不使用ignoring或者on关键字时的演示结果：**
 
-![截屏2023-07-30 00.21.37](/Users/liuyang/Library/Application Support/typora-user-images/截屏2023-07-30 00.21.37.png)
+![截屏2023-07-30 00.21.37](./截屏2023-07-30 00.21.37.png)
 
 以上的结果可以发现对两个不匹配的向量进行算术运算时，结果为空。
 
 **ignoring关键字使用的演示结果:**
 
-![截屏2023-07-30 00.14.14](/Users/liuyang/Library/Application Support/typora-user-images/截屏2023-07-30 00.14.14.png)
+![截屏2023-07-30 00.14.14](./截屏2023-07-30 00.14.14.png)
 
 **在不使用ignoring的前提下，上面两个向量是不匹配的，因为其中一个标签无法匹配。当使用了ignoring来忽略不匹配的标签以后，运算符两侧的向量匹配。**
 
 **on关键字使用的演示结果:**
 
-![截屏2023-07-30 00.24.11](/Users/liuyang/Library/Application Support/typora-user-images/截屏2023-07-30 00.24.11.png)
+![截屏2023-07-30 00.24.11](./截屏2023-07-30 00.24.11.png)
 
 ### 多对一和一对多向量匹配
 
@@ -212,27 +212,27 @@ Prometheus中存在以下二元比较运算符：
 
 **一对一示例：**
 
-![截屏2023-07-30 01.25.28](/Users/liuyang/Library/Application Support/typora-user-images/截屏2023-07-30 01.25.28.png)
+![截屏2023-07-30 01.25.28](./截屏2023-07-30 01.25.28.png)
 
 等价于
 
-![截屏2023-07-30 01.26.51](/Users/liuyang/Library/Application Support/typora-user-images/截屏2023-07-30 01.26.51.png)
+![截屏2023-07-30 01.26.51](./截屏2023-07-30 01.26.51.png)
 
 **一对一其实是特殊的一对多或者多对一，因此也能使用group_left和group_right**
 
-![截屏2023-07-30 01.34.41](/Users/liuyang/Library/Application Support/typora-user-images/截屏2023-07-30 01.34.41.png)
+![截屏2023-07-30 01.34.41](./截屏2023-07-30 01.34.41.png)
 
 和
 
-![截屏2023-07-30 01.35.03](/Users/liuyang/Library/Application Support/typora-user-images/截屏2023-07-30 01.35.03.png)
+![截屏2023-07-30 01.35.03](./截屏2023-07-30 01.35.03.png)
 
 **多对一示例：**
 
-![截屏2023-07-30 01.37.12](/Users/liuyang/Library/Application Support/typora-user-images/截屏2023-07-30 01.37.12.png)
+![截屏2023-07-30 01.37.12](./截屏2023-07-30 01.37.12.png)
 
 **一对多示例：**
 
-![截屏2023-07-30 10.06.20](/Users/liuyang/Library/Application Support/typora-user-images/截屏2023-07-30 10.06.20.png)
+![截屏2023-07-30 10.06.20](./截屏2023-07-30 10.06.20.png)
 
 **Note: 需要注意的是，group_left和group_right用来决定返回的向量的标签以哪一侧为准。如果是left，返回的结果包含左侧向量匹配向量的标签集合。如果是right，则返回的结果包含右侧向量匹配的标签集合。 需要注意的是，返回的结果集中，每一个向量必须是唯一的，不允许出现相同重复的向量。**
 
@@ -267,7 +267,7 @@ Prometheus提供了一系列内建的聚合操作符，可以用来对单个即�
 
 ### sum聚合函数示例
 
-![截屏2023-07-30 10.18.36](/Users/liuyang/Library/Application Support/typora-user-images/截屏2023-07-30 10.18.36.png)
+![截屏2023-07-30 10.18.36](./截屏2023-07-30 10.18.36.png)
 
 **如果对某一个向量使用sum聚合函数，则会返回该向量所有维度相加以后的总和**
 
@@ -277,17 +277,17 @@ Prometheus提供了一系列内建的聚合操作符，可以用来对单个即�
 
 ### without子句使用示例
 
-### ![截屏2023-07-30 10.28.09](/Users/liuyang/Library/Application Support/typora-user-images/截屏2023-07-30 10.28.09.png)
+### ![截屏2023-07-30 10.28.09](./截屏2023-07-30 10.28.09.png)
 
 和
 
-![截屏2023-07-30 10.28.58](/Users/liuyang/Library/Application Support/typora-user-images/截屏2023-07-30 10.28.58.png)
+![截屏2023-07-30 10.28.58](./截屏2023-07-30 10.28.58.png)
 
 ### by子句使用示例
 
-![截屏2023-07-30 10.25.17](/Users/liuyang/Library/Application Support/typora-user-images/截屏2023-07-30 10.25.17.png)
+![截屏2023-07-30 10.25.17](./截屏2023-07-30 10.25.17.png)
 
-和![截屏2023-07-30 10.25.40](/Users/liuyang/Library/Application Support/typora-user-images/截屏2023-07-30 10.25.40.png)
+和![截屏2023-07-30 10.25.40](./截屏2023-07-30 10.25.40.png)
 
 **从以上可以看出，使用without和by子句可以获得同样的结果集**
 
@@ -297,7 +297,7 @@ Prometheus提供了一系列内建的聚合操作符，可以用来对单个即�
 
 **示例数据，每一个向量的值对应一个http状态码，因此我们可以通过count_values聚合函数来统计每个状态码出现的次数：**
 
-![截屏2023-07-30 14.37.06](/Users/liuyang/Library/Application Support/typora-user-images/截屏2023-07-30 14.37.06.png)
+![截屏2023-07-30 14.37.06](./截屏2023-07-30 14.37.06.png)
 
 **使用函数以后返回的结果向量，统计出了每个状态码出现的次数，如果要进一步细分，也可以给status_code加上过滤标签。比如只统计endpoint="/api/books"的向量中各个状态出现的次数** ![截屏2023-07-30 14.42.19](/Users/liuyang/Library/Application Support/typora-user-images/截屏2023-07-30 14.42.19.png)
 
@@ -307,5 +307,5 @@ Prometheus提供了一系列内建的聚合操作符，可以用来对单个即�
 
 **topk示例：统计top 2的状态码出现的次数**
 
-![截屏2023-07-30 14.45.15](/Users/liuyang/Library/Application Support/typora-user-images/截屏2023-07-30 14.45.15.png)
+![截屏2023-07-30 14.45.15](./截屏2023-07-30 14.45.15.png)
 
